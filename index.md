@@ -8,7 +8,7 @@ layout: default
 
 ## 君の名は
 
-<iframe width="980" height="410" src="https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=842587944744" frameborder="0"></iframe>
+<iframe width="490" height="205" src="https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=842587944744" frameborder="0"></iframe>
 
 ```
 The final element.
