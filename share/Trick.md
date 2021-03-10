@@ -13,3 +13,9 @@ regsvr32.exe /u ContextMenu64.dll
 regsvr32.exe /u ContextMenu.dll
 regsvr32.exe /u ContextMenu.dll
 ```
+
+## Three editions, One Doc
+* Do not hope to collaborate with your boss, accept his/her order
+* For Dummies:  show a series of beautiful slides
+* For Amateurs: show the intrinsc properties and the advance
+* For Experts:  show all the pros and cons
