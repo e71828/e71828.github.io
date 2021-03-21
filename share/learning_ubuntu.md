@@ -159,3 +159,6 @@ Set-PSReadLineOption -EditMode Emacs
 #### 查看环境变量
 win `type env:path`  
 linux `echo $PATH | tr '\n'`
+
+## git Proxy
+`git config --global --add remote.origin.proxy ""`
