@@ -45,3 +45,11 @@ network:
                 "intellisense_lab2.4":
                     password: "zngzsys12345678"
 ```
+
+## Autologon
+```bash
+$ sudo systemctl edit getty@tty1.service
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM
+```
