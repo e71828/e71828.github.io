@@ -27,3 +27,21 @@
 - sudo i2cdetect -y 1
 - sudo i2cdump -y 1
 - sudo apt install -y python3-pip && pip3  install smbus
+
+# Ubuntu server 20.10
+```
+$ cat 50-cloud-init.yaml
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        wlan0:
+            dhcp4: true
+            optional: true
+            access-points:
+                "intellisense_lab2.4":
+                    password: "zngzsys12345678"
+```
