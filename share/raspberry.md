@@ -39,7 +39,10 @@ network:
     version: 2
     wifis:
         wlan0:
-            dhcp4: true
+            dhcp4: no
+            address: 
+              - 192.168.31.15/24
+            gateway4: 192.168.31.1
             optional: true
             access-points:
                 "intellisense_lab2.4":
