@@ -40,7 +40,7 @@ network:
     wifis:
         wlan0:
             dhcp4: no
-            address: 
+            addresses: 
               - 192.168.31.15/24
             gateway4: 192.168.31.1
             optional: true
