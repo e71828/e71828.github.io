@@ -30,7 +30,7 @@
 
 # Ubuntu server 20.10
 ```
-$ cat 50-cloud-init.yaml
+$ cat /etc/netplan/50-cloud-init.yaml
 network:
     ethernets:
         eth0:
@@ -48,6 +48,9 @@ network:
                 "intellisense_lab2.4":
                     password: "zngzsys12345678"
 ```
+`sudo netplan try`
+
+`sudo netplan apply`
 
 ## Autologon
 ```bash

@@ -83,6 +83,13 @@ Clash Webui: [`lab:9080/ui`](http://192.168.31.163:9080/ui)
 ## conda
 查看当前环境：`echo $PATH`  
 自己手动添加环境变量：`export PATH="/opt/anaconda3/bin:$PATH"`  
+`Conda`自启动关闭: `conda config --set auto_activate_base false'
+
+kind but warning:
+  - `nano ~/.jupyter/jupyter_notebook_config.py`
+  - `#c.NotebookApp.local_hostnames = ['localhost']`
+  - `c.NotebookApp.password = ''`
+  - `c.NotebookApp.password_required = False`
 
 ## Docker
 ```
