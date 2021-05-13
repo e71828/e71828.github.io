@@ -59,3 +59,26 @@ $ sudo systemctl edit getty@tty1.service
 ExecStart=
 ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM
 ```
+
+
+
+## Disabling on-board Bluetooth and Using ttyAMA0
+```bash
+sudo systemctl status serial-getty@ttyAMA0.service
+sudo systemctl disable serial-getty@ttyAMA0.service
+sudo systemctl status serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+
+tail -n 6 /boot/firmware/config.txt
+# Disable Bluetooth added by e71828,20210512
+#dtoverlay=disable-bt
+
+# Switches the Bluetooth function to use the mini UART
+dtoverlay=miniuart-bt
+force_turbo=1
+```
+
+`sudo usermod -aG dialout $USER`
+### Hit any key to stop autoboot: 2 1 0
+open serial: manage to enter `uboot`, `setenv bootdelay -2`, `saveenv`
+
