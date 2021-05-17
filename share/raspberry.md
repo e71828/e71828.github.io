@@ -94,3 +94,13 @@ open serial: manage to enter `uboot`, `setenv bootdelay -2`, `saveenv`
     - EEPROM Data: (GPIO0); EEPROM Clock (GPIO1)
 - Serial
     - TX (GPIO14); RX (GPIO15)
+
+
+## PWM
+```
+sudo usermod -aG dialout $USER
+sudo chown root:dialout /dev/gpiomem
+sudo chmod g+rw /dev/gpiomem
+./pwmSoft.py
+```
+ find the [`pwmSoft.py`](https://gist.github.com/e71828/f7bbf624a3f300aafe77d95ada1f08dc)
