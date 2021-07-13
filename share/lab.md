@@ -146,6 +146,25 @@ sudo nmcli con mod "Wired connection 1"\
   ipv4.method "auto"
 sudo netplan try
 ```
+### All in file NOW
+```bash
+amax@lab:~$ cat /etc/netplan/01-netcfg.yaml
+# This file describes the network interfaces available on your system
+# For more information, see netplan(5).
+network:
+    version: 2
+    renderer: NetworkManager
+    ethernets:
+        eno1:
+            dhcp4: no
+            dhcp6: yes
+            addresses:
+                - 192.168.31.163/24
+            gateway4: 192.168.31.1
+            nameservers:
+                addresses: [192.168.31.1, 114.114.114.114]
+```
+
 
 ## Installing CUDA library for all users
 ```bash
