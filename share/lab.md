@@ -589,3 +589,14 @@ Clash Webui: [`lab:9080/ui`](http://192.168.31.163:9080/ui)`
 
 ## GCC learn
 `ll /usr/bin/gcc*`
+
+## udisksctl: [disable automount](https://unix.stackexchange.com/questions/170549/how-to-disable-automount-for-external-devices-in-opensuse-13-2)
+```bash
+amax@lab:~$ cat /etc/udev/rules.d/99-noautomount.rules
+ENV{UDISKS_PRESENTATION_HIDE}="1"
+ENV{UDISKS_PRESENTATION_NOPOLICY}="1"
+ENV{UDISKS_AUTOMOUNT_HINT}="never"
+ENV{UDISKS_SYSTEM_INTERNAL}="1"
+ENV{UDISKS_IGNORE}="1"
+ENV{UDISKS_AUTO}="0"
+```
