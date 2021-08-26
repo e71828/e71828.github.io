@@ -104,3 +104,20 @@ sudo chmod g+rw /dev/gpiomem
 ./pwmSoft.py
 ```
  find the [`pwmSoft.py`](https://gist.github.com/e71828/f7bbf624a3f300aafe77d95ada1f08dc)
+
+
+## STM32flash
+```bash
+wget https://udomain.dl.sourceforge.net/project/stm32flash/stm32flash-0.6.tar.gz
+tar -xvpzf stm32flash-0.6.tar.gz
+cd stm32flash-0.6 && make
+
+./stm32flash -r ~/read.bin -R -i '-dtrrtsdtr,:-dtr-rts' /dev/ttyUSB0
+./stm32flash -w ~/LED.hex -R -i '-dtrrtsdtr,:-dtr-rts' /dev/ttyUSB0
+
+sudo make install
+```
+```bash
+sudo apt isntall stm32flash
+stm32flash -w ~/LED.hex -R -i '-dtr,rts,dtr,:-dtr,-rts' /dev/ttyUSB0
+```
