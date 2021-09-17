@@ -45,7 +45,7 @@ network:
             gateway4: 192.168.31.1
             optional: true
             access-points:
-                "intellisense_lab2.4":
+                "intellisense_lab2.4\"\n  scan_ssid=1\n# \"hack!":
                     password: "zngzsys12345678"
 ```
 `sudo netplan try`
