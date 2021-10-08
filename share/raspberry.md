@@ -121,3 +121,49 @@ sudo make install
 sudo apt isntall stm32flash
 stm32flash -w ~/LED.hex -R -i '-dtr,rts,dtr,:-dtr,-rts' /dev/ttyUSB0
 ```
+
+## STM32Debug
+```bash
+# build
+git clone https://github.com/openocd-org/openocd.git --depth=1
+cd openocd && ./bootstrap
+./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio
+make -j4
+sudo make install
+```
+
+```
+# test
+ubuntu@ubuntu:~/openocd -f interface/raspberrypi-native.cfg -f target/stm32f1x.cfg -c "program USART.axf verify reset exit"
+ubuntu@ubuntu:~/openocd$ sudo openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c "program USART.axf verify reset exit"
+ubuntu@ubuntu:/usr/local/share/openocd/scripts/interface$ cat openocd.cfg
+source [find stlink.cfg]
+transport select hla_swd
+bindto 0.0.0.0
+set WORKAREASIZE 0x2000
+#type of STM32
+source [find ../target/stm32f1x.cfg]
+reset_config none
+#srst_nogate
+adapter srst delay 100
+adapter srst pulse_width 100
+init
+targets
+reset hal
+ubuntu@ubuntu:/usr/local/share/openocd/scripts/interface$ sudo openocd
+Open On-Chip Debugger 0.11.0+dev-g9188115 (2021-10-08-13:05)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : DEPRECATED target event trace-config; use TPIU events {pre,post}-{enable,disable}
+Info : clock speed 1000 kHz
+Info : STLINK V2J37S7 (API v2) VID:PID 0483:3748
+Info : Target voltage: 3.265209
+Error: init mode failed (unable to connect to the target)
+
+
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+
+```
