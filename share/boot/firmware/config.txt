@@ -1,0 +1,71 @@
+# Please DO NOT modify this file; if you need to modify the boot config, the
+# "usercfg.txt" file is the place to include user changes. Please refer to
+# the README file for a description of the various configuration files on
+# the boot partition.
+
+# The unusual ordering below is deliberate; older firmwares (in particular the
+# version initially shipped with bionic) don't understand the conditional
+# [sections] below and simply ignore them. The Pi4 doesn't boot at all with
+# firmwares this old so it's safe to place at the top. Of the Pi2 and Pi3, the
+# Pi3 uboot happens to work happily on the Pi2, so it needs to go at the bottom
+# to support old firmwares.
+
+[pi4]
+kernel=uboot_rpi_4.bin
+max_framebuffers=2
+
+[pi2]
+kernel=uboot_rpi_2.bin
+
+[pi3]
+kernel=uboot_rpi_3.bin
+
+[all]
+arm_64bit=1
+device_tree_address=0x03000000
+
+# The following settings are "defaults" expected to be overridden by the
+# included configuration. The only reason they are included is, again, to
+# support old firmwares which don't understand the "include" command.
+
+# enable_uart=1 # already in syscfg.txt
+cmdline=cmdline.txt
+
+include syscfg.txt
+include usercfg.txt
+
+# Disable Bluetooth added by e71828,20210512
+dtoverlay=disable-bt
+
+# dtoverlay=miniuart-bt
+# force_turbo=1
+
+dtoverlay=pwm
+
+dtoverlay=uart2
+#<<-----------------------------------------------
+#         TXD RXD CTS RTS     Board Pins
+# uart0   14  15              8   10
+# uart1   14  15              8   10
+# uart2   0   1   2   3       27  28  (I2C)
+# uart3   4   5   6   7       7   29
+# uart4   8   9   10  11      24  21  (SPI0)
+# uart5   12  13  14  15      32  33  (gpio-fan)
+#-----------------------------------------------
+# Name:   uart3
+# Info:   Enable uart 3 on GPIOs 4-7
+# Load:   dtoverlay=uart3,<param>
+# Params: ctsrts                  Enable CTS/RTS on GPIOs 6-7 (default off)
+#----------------------------------------------->>
+#https://raspberrypi.stackexchange.com/questions/104464/where-are-the-uarts-on-the-raspberry-pi-4
+
+# dtparam=i2c_arm=on already in syscfg.txt
+dtoverlay=i2c6
+#<<----------------------------------------------
+# dtoverlay=i2c1,pins_2_3 (board pins 3, 5)
+# dtoverlay=i2c3,pins_4_5 (board pins 7, 29)
+# dtoverlay=i2c4,pins_6_7 (board pins 31, 26)
+# dtoverlay=i2c5,pins_12_13 (board pins 32, 33)
+# dtoverlay=i2c6,pins_22_23 (board pins 15, 16)
+#----------------------------------------------->>
+#https://raspberrypi.stackexchange.com/questions/104122/setting-up-multiple-i2c-buses-using-dtoverlay
