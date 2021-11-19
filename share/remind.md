@@ -52,7 +52,7 @@ ip: `10.168.20.166`, ssh port:`22`
 （目前路由器拨号分配的ip，下次拨号很有可能会改变；19楼室内的同学应使用`192.168.31.163`，此为静态ip）
 3. 配置编译环境
     - 临时环境：`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH`
-    - 永久环境：添加一行`export PATH=/usr/local/texlivee/2019/bin/x86_64-linux:$PATH` 到 `~/.bashrc`的末尾；  
+    - 永久环境：添加一行`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH` 到 `~/.bashrc`的末尾；  
                执行`source ~/.bashrc`生效。
 4. 先得到需要编译的tex文件: `git clone https://github.com/nTnZone/signalOptimal.git` 
 5. 进入目录，赋予执行权限: `cd signalOptimal && chmod +x artratex.sh`
