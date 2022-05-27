@@ -167,3 +167,9 @@ Info : Listening on port 6666 for tcl connections
 Info : Listening on port 4444 for telnet connections
 
 ```
+
+### Startup Applications
+
+> You can either type the command, or click the Browse... button and select a command. Applications to autostart are typically located in the /usr/bin folder.
+
+> The autostart files are copied into `~/.config/autostart` when you configure them. [source](https://askubuntu.com/a/303698)
