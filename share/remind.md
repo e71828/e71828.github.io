@@ -49,24 +49,17 @@ udisksctl unmount  -b /dev/sdd1
 2. 使用shell工具登录个人账户到实验室计算机
 ip: `10.168.20.166`, ssh port:`22`
 （目前路由器拨号分配的ip，下次拨号很有可能会改变；19楼室内的同学应使用`192.168.31.163`，此为静态ip）
-~~3. 配置编译环境
-    - 临时环境：`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH`
-    - 永久环境：添加一行`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH` 到 `~/.bashrc`的末尾；  
-               执行`source ~/.bashrc`生效。
+3. ~~配置编译环境~~
+    - ~~临时环境：`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH`~~
+    - ~~永久环境：添加一行`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH` 到 `~/.bashrc`的末尾；  
+               执行`source ~/.bashrc`生效。~~
 4. 先得到需要编译的tex文件: `git clone https://github.com/nTnZone/signalOptimal.git` 
 5. 进入目录，赋予执行权限: `cd signalOptimal && chmod +x artratex.sh`
 6. 利用脚本自动编译（了解参数）: `./artratex.sh x`
 7. 编译pdf的目录: `cd Tmp`，在Tmp目录下利用sftp工具取回`main.pdf`
 
-~~## pt资源下载获取
-Deluge: [`lab:8112`](http://lab:8112)
-- password: `password`
 
-~~Transmission: [`lab:9091`](http://lab:9091)
-- username:`username`
-- password:`password`
-
-Download:
+## Download:
 ```powershell
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\lab\Courses" -Persist -Credential $cre -Scope Global
 New-PSDrive -Name Y -PSProvider FileSystem -Root "\\lab\BT_Movies" -Persist -Credential $cre -Scope Global
@@ -77,12 +70,12 @@ then, press Windows Key &#8862; + E to open the explorer, find the disk(Z:) or d
 Clash Webui: [`lab:9080/ui`](http://192.168.31.163:9080/ui)
 
 ~~**chrome** or **firefox**  
-插件配置：switchyomega + gfwlist + auto switch
+插件配置：switchyomega + gfwlist + auto switch~~
 
 ## conda
 查看当前环境：`echo $PATH`  
 ~~自己手动添加环境变量：`export PATH="/opt/anaconda3/bin:$PATH"`  
-`Conda`自启动关闭: `conda config --set auto_activate_base false'
+`Conda`自启动关闭: `conda config --set auto_activate_base false'~~
 
 kind but warning:
   - `nano ~/.jupyter/jupyter_notebook_config.py`
