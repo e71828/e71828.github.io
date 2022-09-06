@@ -13,22 +13,21 @@
 ## ssh中运行matlab程序示例
 ```
 %%% in this part, we use % for comment %%%
-%复制示例文件，并切换到该目录
-%copy example codes to current directory, then changed into the file
-cp /home/amax/ana_link/ ~/ana_link
-cd ~/ana_link
+%edit the source file
+echo "disp('Hello, world')" > test.m
+echo "lucky=6174" >> test.m
 
 %在脚本后加上退出命令
 %for autoexit, append to your script code.
-echo "exit()" >> Linkage_analysis.m 
+echo "exit" >> test.m 
 
 %后台运行
 %run the code backgroud
-nohup matlab -nodisplay -nosplash <Linkage_analysis.m 
+nohup matlab -nodisplay <test.m >log.txt 2&>1 &
 
 %查看结果在终端的输出
 %debug from the log for console print
-cat nohup.out
+cat log.txt
 ```
 ~~#sed -i '$d' fileName~~
 
@@ -50,7 +49,7 @@ udisksctl unmount  -b /dev/sdd1
 2. 使用shell工具登录个人账户到实验室计算机
 ip: `10.168.20.166`, ssh port:`22`
 （目前路由器拨号分配的ip，下次拨号很有可能会改变；19楼室内的同学应使用`192.168.31.163`，此为静态ip）
-3. 配置编译环境
+~~3. 配置编译环境
     - 临时环境：`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH`
     - 永久环境：添加一行`export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH` 到 `~/.bashrc`的末尾；  
                执行`source ~/.bashrc`生效。
@@ -59,11 +58,11 @@ ip: `10.168.20.166`, ssh port:`22`
 6. 利用脚本自动编译（了解参数）: `./artratex.sh x`
 7. 编译pdf的目录: `cd Tmp`，在Tmp目录下利用sftp工具取回`main.pdf`
 
-## pt资源下载获取
+~~## pt资源下载获取
 Deluge: [`lab:8112`](http://lab:8112)
 - password: `password`
 
-Transmission: [`lab:9091`](http://lab:9091)
+~~Transmission: [`lab:9091`](http://lab:9091)
 - username:`username`
 - password:`password`
 
@@ -77,12 +76,12 @@ then, press Windows Key &#8862; + E to open the explorer, find the disk(Z:) or d
 ## proxy
 Clash Webui: [`lab:9080/ui`](http://192.168.31.163:9080/ui)
 
-**chrome** or **firefox**  
+~~**chrome** or **firefox**  
 插件配置：switchyomega + gfwlist + auto switch
 
 ## conda
 查看当前环境：`echo $PATH`  
-自己手动添加环境变量：`export PATH="/opt/anaconda3/bin:$PATH"`  
+~~自己手动添加环境变量：`export PATH="/opt/anaconda3/bin:$PATH"`  
 `Conda`自启动关闭: `conda config --set auto_activate_base false'
 
 kind but warning:
