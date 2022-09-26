@@ -168,8 +168,12 @@ Info : Listening on port 4444 for telnet connections
 
 ```
 
+## SpaceMouse
+in `/etc/udev/rules.d/99-hidraw-permissions.rules`, write `KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev" `
+
 ### Startup Applications
 
 > You can either type the command, or click the Browse... button and select a command. Applications to autostart are typically located in the /usr/bin folder.
 
 > The autostart files are copied into `~/.config/autostart` when you configure them. [source](https://askubuntu.com/a/303698)
+
