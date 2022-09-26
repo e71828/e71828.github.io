@@ -39,7 +39,7 @@ network:
     version: 2
     wifis:
         wlan0:
-            dhcp4: no
+            dhcp4: yes
             addresses: 
               - 192.168.31.15/24
             gateway4: 192.168.31.1
