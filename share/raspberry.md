@@ -193,5 +193,5 @@ dpkg --list | grep linux-raspi-headers | awk '{print $2}' | grep -v  $(uname -r)
 
 ## under-voltage
 ```bash
-dmseg | grep -i voltage
+dmesg | grep -i voltage
 ```
