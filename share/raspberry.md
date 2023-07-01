@@ -177,3 +177,21 @@ in `/etc/udev/rules.d/99-hidraw-permissions.rules`, write `KERNEL=="hidraw*", SU
 
 > The autostart files are copied into `~/.config/autostart` when you configure them. [source](https://askubuntu.com/a/303698)
 
+## remove old kernels
+```bash
+#!/bin/bash
+dpkg --list | grep linux-image
+
+dpkg --list | grep linux-image | awk '{print $2}' | grep -v  $(uname -r) | xargs sudo  apt -y purge
+
+dpkg --list | grep linux-headers | awk '{print $2}' | grep -v  $(uname -r) | sed 's/-generic//'| xargs sudo  apt -y purge
+
+dpkg --list | grep linux-modules | awk '{print $2}' | grep -v  $(uname -r) | sed 's/-generic//'| xargs sudo  apt -y purge
+
+dpkg --list | grep linux-raspi-headers | awk '{print $2}' | grep -v  $(uname -r) | sed 's/-generic//'| xargs sudo  apt -y purge
+```
+
+## under-voltage
+```bash
+dmseg | grep -i voltage
+```
