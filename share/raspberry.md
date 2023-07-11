@@ -40,9 +40,11 @@ network:
     wifis:
         wlan0:
             dhcp4: yes
-            addresses: 
+            addresses:
               - 192.168.31.15/24
-            gateway4: 192.168.31.1
+            routes:
+              - to: default
+                via: 192.168.31.1
             optional: true
             access-points:
                 "intellisense_lab2.4\"\n  scan_ssid=1\n# \"hack!":
