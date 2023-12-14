@@ -57,7 +57,7 @@ sudo nano /etc/fstab
 #Mount the ESP
 sudo mount /dev/sda4 /mnt/boot/efi
 #Mirror files
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt/$i; done
+for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
 #Root to /mnt
 sudo chroot /mnt
 #grub reintsall or fix
