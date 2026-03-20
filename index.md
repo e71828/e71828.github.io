@@ -2,13 +2,19 @@
 layout: default
 ---
 
-# GO to the Mars
+# 📚 Documentation Index
 
-<iframe src="https://mars.nasa.gov/layout/embed/video/?v=423" width="640" height="370" scrolling="no" frameborder="0"></iframe>
+## 🔬 Math (数学)
+- [**Fourier Transform Analysis** (傅里叶变换浅析)](./math/fourier.md) - Understanding frequency domain and Fourier series
+- [**Velocity Field** (速度场)](./math/velocity_field.md) - Incompressible flow and stream functions
 
-## 君の名は
+## 💡 Share (分享)
+- [**School Life Tips** (学校生活技巧)](./share/Trick.md) - PDF tricks, Adobe hacks, and more
+- [**Ubuntu Learning** (Ubuntu 学习)](./share/learning_ubuntu.md) - System migration, backup/restore, GRUB repair
+- [**Raspberry Pi** (树莓派)](./share/raspberry.md) - Configuration, I2C, STM32 programming
+- [**Reminders** (提醒)](./share/remind.md) - RFID commands and notes
 
-<iframe width="490" height="205" src="https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=842587944744" frameborder="0"></iframe>
+---
 
 ```
 The final element.
